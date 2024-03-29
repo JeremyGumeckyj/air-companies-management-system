@@ -1,10 +1,10 @@
-package model;
+package main.model;
 
 import main.FlightStatus;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Entity
@@ -39,21 +39,21 @@ public class Flight {
     private int estimatedFlightTime;
 
     @Column(name = "startedAt")
-    private LocalDateTime startedAt;
+    private ZonedDateTime startedAt;
 
     @Column(name = "endedAt")
-    private LocalDateTime endedAt;
+    private ZonedDateTime endedAt;
 
     @Column(name = "delayStartedAt")
-    private LocalDateTime delayStartedAt;
+    private ZonedDateTime delayStartedAt;
 
     @Column(name = "createdAt")
-    private LocalDateTime createdAt;
+    private ZonedDateTime createdAt;
 
     public Flight() {
     }
 
-    public Flight(UUID id, FlightStatus flightStatus, UUID airCompanyId, UUID airplaneId, String departureCountry, String destinationCountry, double distance, int estimatedFlightTime, LocalDateTime startedAt, LocalDateTime endedAt, LocalDateTime delayStartedAt, LocalDateTime createdAt) {
+    public Flight(UUID id, FlightStatus flightStatus, UUID airCompanyId, UUID airplaneId, String departureCountry, String destinationCountry, double distance, int estimatedFlightTime, ZonedDateTime startedAt, ZonedDateTime endedAt, ZonedDateTime delayStartedAt, ZonedDateTime createdAt) {
         this.id = id;
         this.flightStatus = flightStatus;
         this.airCompanyId = airCompanyId;
@@ -132,35 +132,35 @@ public class Flight {
         this.estimatedFlightTime = estimatedFlightTime;
     }
 
-    public LocalDateTime getStartedAt() {
+    public ZonedDateTime getStartedAt() {
         return startedAt;
     }
 
-    public void setStartedAt(LocalDateTime startedAt) {
+    public void setStartedAt(ZonedDateTime startedAt) {
         this.startedAt = startedAt;
     }
 
-    public LocalDateTime getEndedAt() {
+    public ZonedDateTime getEndedAt() {
         return endedAt;
     }
 
-    public void setEndedAt(LocalDateTime endedAt) {
+    public void setEndedAt(ZonedDateTime endedAt) {
         this.endedAt = endedAt;
     }
 
-    public LocalDateTime getDelayStartedAt() {
+    public ZonedDateTime getDelayStartedAt() {
         return delayStartedAt;
     }
 
-    public void setDelayStartedAt(LocalDateTime delayStartedAt) {
+    public void setDelayStartedAt(ZonedDateTime delayStartedAt) {
         this.delayStartedAt = delayStartedAt;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public ZonedDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(ZonedDateTime createdAt) {
         this.createdAt = createdAt;
     }
 }

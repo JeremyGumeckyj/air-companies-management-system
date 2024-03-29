@@ -33,7 +33,6 @@ out/
 # .idea/misc.xml
 # *.ipr
 
-
 .gradle
 /build
 /*/build
@@ -42,3 +41,5 @@ out/
 /*/*/*/*/build
 /*/docs/src/samples/**/build
 /*/docs/src/snippets/**/build
+
+/target/
