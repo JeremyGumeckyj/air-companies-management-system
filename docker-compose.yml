@@ -1,0 +1,32 @@
+services:
+  api_service:
+    container_name: aircompanies
+    depends_on:
+      - sql-test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8080
+    networks:
+      - springapimysql-net
+    command: --spring.profiles.active=docker
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/air-companies-management-system-db?allowPublicKeyRetrieval=true
+    restart: always
+
+  sql-test:
+    container_name: mysqldb
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: air-companies-management-system-db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 1111
+      MYSQL_ROOT_PASSWORD: 1111
+    networks:
+      - springapimysql-net
+    ports:
+      - 3306:3306
+
+networks:
+  springapimysql-net:
